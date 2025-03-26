@@ -6,30 +6,64 @@
     <title>Monster Survivors - Online Survival Game | Play Now</title>
     <meta name="description" content="Play Monster Survivors online - an action-packed survival game where you battle endless waves of monsters using unique abilities and power-ups.">
     <link rel="canonical" href="https://monster-survivors.shop/">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N59KRYJ1F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6N59KRYJ1F');
+    </script>
+    
+    <!-- 添加favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- 添加Open Graph和Twitter卡片元标签 -->
+    <meta property="og:title" content="Monster Survivors - Online Survival Game">
+    <meta property="og:description" content="Battle endless waves of monsters in this action-packed online survival game. Free to play in your browser!">
+    <meta property="og:image" content="https://monster-survivors.shop/images/game-preview.jpg">
+    <meta property="og:url" content="https://monster-survivors.shop/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- 使用CDN加载Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
     <style>
         :root {
-            --apple-white: #ffffff;
-            --apple-gray-light: #f5f5f7;
-            --apple-gray: #86868b;
-            --apple-blue: #0071e3;
-            --apple-dark: #1d1d1f;
+            --primary-color: #4F46E5;
+            --primary-hover: #4338CA;
+            --dark-color: #111827;
+            --light-color: #F9FAFB;
+            --gray-color: #6B7280;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--apple-white);
-            color: var(--apple-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            scroll-behavior: smooth;
         }
         
         .btn-primary {
-            background-color: var(--apple-blue);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .btn-primary:hover {
-            background-color: #0077ED;
-            transform: scale(1.02);
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         
         .game-container {
@@ -39,6 +73,8 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
@@ -48,20 +84,81 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 12px;
             border: none;
         }
         
+        .feature-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
         .feature-icon {
-            background-color: var(--apple-gray-light);
-            color: var(--apple-blue);
-            width: 64px;
-            height: 64px;
+            background-color: #EEF2FF;
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--gray-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         @media (max-width: 768px) {
@@ -74,16 +171,16 @@
 <body>
     <header class="bg-white shadow-sm sticky top-0 z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-gray-900 flex items-center">
-                <span class="text-blue-600 mr-1">Monster</span> Survivors
+            <a href="/" class="text-2xl font-bold flex items-center">
+                <span class="text-indigo-600 mr-1">Monster</span> Survivors
             </a>
             <nav class="hidden md:flex space-x-8">
-                <a href="#game" class="text-gray-700 hover:text-blue-600 transition">Play Now</a>
-                <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Features</a>
-                <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                <a href="#faq" class="text-gray-700 hover:text-blue-600 transition">FAQ</a>
+                <a href="#game" class="nav-link">Play Now</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#faq" class="nav-link">FAQ</a>
             </nav>
-            <button class="md:hidden focus:outline-none">
+            <button class="md:hidden focus:outline-none" aria-label="Toggle menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -93,116 +190,116 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+        <section class="hero-section">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    <span class="text-blue-600">Monster Survivors:</span> Epic Survival Adventure
+                    Monster Survivors: Epic Survival Adventure
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10">
-                    Battle endless waves of monsters, upgrade your abilities, and survive as long as possible in this action-packed online game.
+                <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-10">
+                    战胜无尽的怪物浪潮，升级你的能力，在这款动作冒险游戏中尽可能长时间地生存下去！
                 </p>
-                <a href="#game" class="btn-primary inline-block px-8 py-4 text-lg font-medium text-white rounded-full shadow-lg">
-                    Play Now — It's Free
+                <a href="#game" class="btn-primary text-lg">
+                    立即开始游戏 — 完全免费
                 </a>
             </div>
         </section>
 
         <!-- Game Section -->
-        <section id="game" class="py-16 bg-white">
+        <section id="game" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Play Monster Survivors Online</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title">在线游玩 Monster Survivors</h2>
                 <div class="game-container">
-                    <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" allow="fullscreen" allowfullscreen="true" title="Play Monster Survivors"></iframe>
+                    <iframe src="https://monster-survivors.shop/game/" allow="fullscreen" allowfullscreen="true" title="Play Monster Survivors" loading="lazy"></iframe>
                 </div>
                 <div class="text-center mt-8">
                     <p class="text-gray-600 text-lg max-w-3xl mx-auto">
-                        No downloads required - play instantly in your browser on any device!
+                        无需下载 - 在任何设备上即刻开始游戏体验！
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="py-16 bg-gray-50">
+        <section id="features" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Game Features</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title">游戏特色</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                     <!-- Feature 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Endless Gameplay</h3>
+                        <h3 class="text-xl font-semibold mb-3">无尽游戏模式</h3>
                         <p class="text-gray-600">
-                            Face increasingly challenging waves of monsters in an endless survival mode that tests your skills and strategy.
+                            面对越来越具挑战性的怪物浪潮，在无尽的生存模式中测试你的技能和策略。
                         </p>
                     </div>
                     
                     <!-- Feature 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Unique Abilities</h3>
+                        <h3 class="text-xl font-semibold mb-3">独特能力系统</h3>
                         <p class="text-gray-600">
-                            Unlock and upgrade powerful abilities as you progress, customizing your character to match your playstyle.
+                            随着游戏进程解锁并升级强大的能力，根据你的游戏风格定制你的角色。
                         </p>
                     </div>
                     
                     <!-- Feature 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Fast-Paced Action</h3>
+                        <h3 class="text-xl font-semibold mb-3">快节奏动作</h3>
                         <p class="text-gray-600">
-                            Quick matches perfect for short gaming sessions, with each round offering new challenges and rewards.
+                            适合短时间游戏的快速对战，每一轮都提供新的挑战和奖励。
                         </p>
                     </div>
                     
                     <!-- Feature 4 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Diverse Monsters</h3>
+                        <h3 class="text-xl font-semibold mb-3">多样化怪物</h3>
                         <p class="text-gray-600">
-                            Encounter a wide variety of monsters, each with unique behaviors and attack patterns to master.
+                            遭遇各种各样的怪物，每种怪物都有独特的行为和攻击模式需要掌握。
                         </p>
                     </div>
                     
                     <!-- Feature 5 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Leaderboards</h3>
+                        <h3 class="text-xl font-semibold mb-3">排行榜系统</h3>
                         <p class="text-gray-600">
-                            Compete against players worldwide to achieve the highest scores and longest survival times.
+                            与全球玩家竞争，争取获得最高分数和最长的生存时间。
                         </p>
                     </div>
                     
                     <!-- Feature 6 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">Regular Updates</h3>
+                        <h3 class="text-xl font-semibold mb-3">定期更新</h3>
                         <p class="text-gray-600">
-                            Enjoy frequent content updates with new characters, abilities, monsters, and gameplay improvements.
+                            享受频繁的内容更新，包括新角色、新能力、新怪物和游戏玩法改进。
                         </p>
                     </div>
                 </div>
@@ -210,56 +307,56 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-16 bg-white">
+        <section id="about" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">About Monster Survivors</h2>
-                <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title">关于 Monster Survivors</h2>
+                <div class="max-w-4xl mx-auto mt-12">
                     <p class="text-lg text-gray-700 mb-6">
-                        Monster Survivors is an addictive survival action game where your goal is simple: stay alive as long as possible against endless waves of monsters. As you progress, you'll collect experience points to level up and unlock powerful abilities that help you survive the increasingly difficult challenges.
+                        Monster Survivors 是一款令人上瘾的生存动作游戏，你的目标很简单：在无尽的怪物浪潮中尽可能长时间地生存下去。随着游戏进程，你将收集经验点来升级并解锁强大的能力，帮助你在越来越困难的挑战中生存下来。
                     </p>
                     <p class="text-lg text-gray-700 mb-6">
-                        The game features intuitive controls that are easy to learn but difficult to master. Move your character with precision to dodge enemy attacks while strategically positioning yourself to maximize your offensive capabilities. Each run is unique, offering different power-ups and enemy spawns for endless replayability.
+                        游戏具有直观的控制系统，易于学习但难以掌握。精确地移动你的角色以躲避敌人的攻击，同时战略性地定位自己以最大化你的攻击能力。每次游戏都是独特的，提供不同的能力加成和敌人生成，带来无尽的可重玩性。
                     </p>
                     <p class="text-lg text-gray-700 mb-6">
-                        Whether you have five minutes or five hours, Monster Survivors provides the perfect gaming experience. Quick to start but hard to put down, you'll find yourself constantly trying to beat your previous record as you discover new strategies and ability combinations.
+                        无论你有五分钟还是五小时，Monster Survivors 都能提供完美的游戏体验。快速开始但难以放下，当你发现新的策略和能力组合时，你会不断尝试打破自己的记录。
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-16 bg-gray-50">
+        <section id="faq" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-                <div class="max-w-3xl mx-auto space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title">常见问题</h2>
+                <div class="max-w-3xl mx-auto space-y-6 mt-12">
                     <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-3">Is Monster Survivors free to play?</h3>
+                        <h3 class="text-xl font-semibold mb-3">Monster Survivors 是免费游戏吗？</h3>
                         <p class="text-gray-600">
-                            Yes, Monster Survivors is completely free to play in your browser with no downloads required. Just visit the website and start playing immediately!
+                            是的，Monster Survivors 完全免费，可以在浏览器中玩，无需下载。只需访问网站即可立即开始游戏！
                         </p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-3">Can I play on mobile devices?</h3>
+                        <h3 class="text-xl font-semibold mb-3">我可以在移动设备上玩吗？</h3>
                         <p class="text-gray-600">
-                            Absolutely! Monster Survivors is fully optimized for both desktop and mobile play, offering a seamless experience across all your devices.
+                            当然可以！Monster Survivors 已完全针对桌面和移动设备进行了优化，在所有设备上都能提供流畅的体验。
                         </p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-3">How do I save my progress?</h3>
+                        <h3 class="text-xl font-semibold mb-3">如何保存我的进度？</h3>
                         <p class="text-gray-600">
-                            Your progress is automatically saved to your browser. For the best experience, we recommend creating an account to save your progress across different devices.
+                            你的进度会自动保存到浏览器中。为了获得最佳体验，我们建议创建一个账户，以便在不同设备上保存进度。
                         </p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-3">Are there in-game purchases?</h3>
+                        <h3 class="text-xl font-semibold mb-3">游戏内有购买项目吗？</h3>
                         <p class="text-gray-600">
-                            While Monster Survivors is free to play, there are optional cosmetic items available for purchase that don't affect gameplay. All gameplay features are available without spending money.
+                            虽然 Monster Survivors 是免费游戏，但有可选的装饰性物品可供购买，这些不会影响游戏玩法。所有游戏功能都可以不花钱获得。
                         </p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-3">How often is the game updated?</h3>
+                        <h3 class="text-xl font-semibold mb-3">游戏多久更新一次？</h3>
                         <p class="text-gray-600">
-                            We release updates approximately once a month, adding new content, balancing existing features, and addressing player feedback to continually improve the game.
+                            我们大约每月发布一次更新，添加新内容，平衡现有功能，并根据玩家反馈不断改进游戏。
                         </p>
                     </div>
                 </div>
@@ -267,14 +364,14 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 bg-blue-600 text-white">
+        <section class="py-16 bg-indigo-600 text-white">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Face the Monster Horde?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">准备好面对怪物大军了吗？</h2>
                 <p class="text-xl max-w-2xl mx-auto mb-10">
-                    Jump into Monster Survivors now and see how long you can survive against the endless waves of monsters!
+                    立即加入 Monster Survivors，看看你能在无尽的怪物浪潮中生存多久！
                 </p>
-                <a href="#game" class="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-full shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
-                    Play Now
+                <a href="#game" class="inline-block px-8 py-4 bg-white text-indigo-600 font-bold rounded-lg shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
+                    立即游戏
                 </a>
             </div>
         </section>
@@ -286,32 +383,32 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Monster Survivors</h3>
                     <p class="text-gray-400">
-                        An epic survival action game with endless waves of monsters and powerful abilities.
+                        一款史诗级生存动作游戏，拥有无尽的怪物浪潮和强大的能力系统。
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
                     <ul class="space-y-2">
-                        <li><a href="#game" class="text-gray-400 hover:text-white transition">Play Game</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#game" class="text-gray-400 hover:text-white transition">游戏</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">特色</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">关于</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">常见问题</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <h3 class="text-lg font-bold mb-4">法律</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">服务条款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">隐私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie 政策</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Connect</h3>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Support</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Feedback</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">联系我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">支持</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">反馈</a></li>
                     </ul>
                     <div class="flex space-x-4 mt-4">
                         <a href="#" class="text-gray-400 hover:text-white transition">
@@ -321,44 +418,4 @@
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white transition">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400">
-                    &copy; 2025 Monster Survivors. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Simple mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuButton = document.querySelector('button');
-            const nav = document.querySelector('nav');
-            
-            menuButton.addEventListener('click', function() {
-                nav.classList.toggle('hidden');
-                nav.classList.toggle('flex');
-                nav.classList.toggle('flex-col');
-                nav.classList.toggle('absolute');
-                nav.classList.toggle('top-16');
-                nav.classList.toggle('right-4');
-                nav.classList.toggle('bg-white');
-                nav.classList.toggle('p-4');
-                nav.classList.toggle('rounded-lg');
-                nav.classList.toggle('shadow-lg');
-            });
-        });
-    </script>
-</body>
-</html>
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.
